@@ -63,3 +63,28 @@ const images = [
     description: "Lighthouse Coast Sea",
   },
 ];
+
+const container = document.querySelector(".gallery");
+
+container.innerHTML = images.reduce(
+  (html, image) =>
+    html +
+    `
+    <li class="gallery-item">
+        <a class="gallery-link" 
+            href="${image.original}">
+                <img
+                    class="gallery-image"
+                    src="${image.preview}"
+                    data-source="${image.original}"
+                    alt="${image.description}"
+                />
+        </a>
+    </li>  
+`,
+  ""
+);
+
+container.addEventListener("click", (event) => {
+  console.log(event.target);
+});
