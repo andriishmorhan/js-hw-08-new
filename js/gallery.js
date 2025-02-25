@@ -86,5 +86,7 @@ container.innerHTML = images.reduce(
 );
 
 container.addEventListener("click", (event) => {
-  console.log(event.target);
+  const imageId = event.target.dataset;
+  console.log(imageId);
+  console.log(event.currentTarget);
 });
