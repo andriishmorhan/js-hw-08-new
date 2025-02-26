@@ -86,7 +86,21 @@ container.innerHTML = images.reduce(
 );
 
 container.addEventListener("click", (event) => {
-  const imageId = event.target.dataset;
-  console.log(imageId);
-  console.log(event.currentTarget);
+  event.preventDefault();
+
+  const imageId = event.target.dataset.source;
+
+  if (imageId) {
+    const largeImg = images.find((image) => image.original === imageId);
+    if (!largeImg) return;
+
+    const myModal = basicLightbox.create(`
+        <div class="modal">
+        <img
+        src="${largeImg.original}
+        />
+        </div>
+    `);
+    myModal.show();
+  }
 });
