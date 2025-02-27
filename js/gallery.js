@@ -96,9 +96,7 @@ container.addEventListener("click", (event) => {
 
     const myModal = basicLightbox.create(`
         <div class="modal">
-        <img
-        src="${largeImg.original}
-        />
+        <img src="${largeImg.original}" />
         </div>
     `);
     myModal.show();
